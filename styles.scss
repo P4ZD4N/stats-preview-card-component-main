@@ -6,7 +6,7 @@ $dark-desaturated-blue : hsl(244, 38%, 16%); //(card background)
 $soft-violet: hsl(277, 64%, 61%); //(accent)
 
 //Neutral
-$white : hsl(0, 0%, 100%); // main heading, stats
+$white: hsl(0, 0%, 100%); // main heading, stats
 $slightly-transparent-white-p: hsla(0, 0%, 100%, 0.75); // main paragraph
 $slightly-transparent-white-h: hsla(0, 0%, 100%, 0.6); //(stat headings)
 
@@ -15,11 +15,92 @@ $font-size: 15px;
 
 //Font
 $inter: 'Inter', sans-serif;
-$lexend-Deca: 'Lexend Deca', sans-serif;
+$lexend-deca: 'Lexend Deca', sans-serif;
 
 *,*::before,*::after{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+body{
+    background-color: $very-dark-blue;
+    font-size: $font-size;
+}
+main{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    .info-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+        width: 90%;
+        padding: 2em;
+        border-radius: 0 0 10px 10px;
+        background-color: $dark-desaturated-blue;
+        &__header{
+            color: $white;
+            font-family: $lexend-deca;
+            font-size: 2em;
+            text-align: center;
+            &--violet{
+                color: $soft-violet;
+            }
+        }
+        &__description{
+            color: $slightly-transparent-white-p;
+            position: relative;
+            bottom: 1em;
+            font-size: 1.05em;
+            line-height: 1.5;
+            font-family: $inter;
+            text-align: center;
+        }
+        &__stats{
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+        }
+        &__stat{
+            line-height: 1.5;
+            &--stat-number{
+                color: $white;
+                font-family: $inter;
+                text-align: center;
+            }
+            &--stat-description{
+                color: $slightly-transparent-white-h;
+                text-align: center;
+                text-transform: uppercase;
+                font-family: $inter;
+            }
+        }
+        
+    }
+    .img-section{
+        width: 90%;
+        position: relative;
+        &__img-desktop{
+            display: none;
+        }
+        &__img-mobile{
+            display: block;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            background-color: $soft-violet;
+            opacity: 0.5;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        } 
+    }
+}
