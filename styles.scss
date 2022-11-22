@@ -23,27 +23,30 @@ $lexend-deca: 'Lexend Deca', sans-serif;
     padding: 0;
 }
 body{
+    display: flex;
+    justify-content: center;
     background-color: $very-dark-blue;
     font-size: $font-size;
+    min-height: 100vh;
 }
 main{
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     .info-section{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2em;
-        width: 90%;
-        padding: 2em;
+        width: clamp(200px, 90%, 500px);
+        padding: 5% 0 5% 0;
         border-radius: 0 0 10px 10px;
         background-color: $dark-desaturated-blue;
         &__header{
             color: $white;
+            width: 90%;
             font-family: $lexend-deca;
             font-size: 2em;
             text-align: center;
@@ -53,6 +56,7 @@ main{
         }
         &__description{
             color: $slightly-transparent-white-p;
+            width: 90%;
             position: relative;
             bottom: 1em;
             font-size: 1.05em;
@@ -61,6 +65,7 @@ main{
             text-align: center;
         }
         &__stats{
+            width: 90%;
             display: flex;
             flex-direction: column;
             gap: 2em;
@@ -79,10 +84,9 @@ main{
                 font-family: $inter;
             }
         }
-        
     }
     .img-section{
-        width: 90%;
+        width: clamp(200px, 90%, 500px);
         position: relative;
         &__img-desktop{
             display: none;
@@ -94,6 +98,7 @@ main{
         }
         &::after{
             content: '';
+            border-radius: 10px 10px 0 0;
             position: absolute;
             background-color: $soft-violet;
             opacity: 0.5;
@@ -102,5 +107,51 @@ main{
             bottom: 0;
             left: 0;
         } 
+    }
+}
+@media (min-width: 1440px){
+    body{
+        align-items: center;
+    }
+    main{
+        flex-direction: row;
+        .info-section{
+            padding: 4%;
+            min-width: 600px;
+            min-height: 412.95px;
+            border-radius: 10px 0 0 10px;
+            &__header{
+                font-size: 2.3em;
+                text-align:start;
+            } 
+            &__description{
+                font-size: 1.1em;
+                text-align:start;
+                bottom: 0.5em;
+            }
+            &__stats{
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            &__stat{
+                &--stat-number{
+                    text-align:start;
+                }
+            }
+        }
+        .img-section{
+            min-width: 500px;
+            &__img-desktop{
+                width: 100%;
+                border-radius: 0 10px 10px 0;
+                display: block;
+            }
+            &__img-mobile{
+                display: none;
+            }
+            &::after{
+                border-radius: 0 10px 10px 0;
+            }
+        }
     }
 }

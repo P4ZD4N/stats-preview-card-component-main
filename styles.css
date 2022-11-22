@@ -6,8 +6,11 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: #090b1a;
   font-size: 15px;
+  min-height: 100vh;
 }
 
 main {
@@ -15,7 +18,6 @@ main {
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 main .info-section {
@@ -24,14 +26,15 @@ main .info-section {
   justify-content: center;
   align-items: center;
   gap: 2em;
-  width: 90%;
-  padding: 2em;
+  width: clamp(200px, 90%, 500px);
+  padding: 5% 0 5% 0;
   border-radius: 0 0 10px 10px;
   background-color: #1b1938;
 }
 
 main .info-section__header {
   color: white;
+  width: 90%;
   font-family: "Lexend Deca", sans-serif;
   font-size: 2em;
   text-align: center;
@@ -43,6 +46,7 @@ main .info-section__header--violet {
 
 main .info-section__description {
   color: rgba(255, 255, 255, 0.75);
+  width: 90%;
   position: relative;
   bottom: 1em;
   font-size: 1.05em;
@@ -52,6 +56,7 @@ main .info-section__description {
 }
 
 main .info-section__stats {
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -75,7 +80,7 @@ main .info-section__stat--stat-description {
 }
 
 main .img-section {
-  width: 90%;
+  width: clamp(200px, 90%, 500px);
   position: relative;
 }
 
@@ -91,6 +96,7 @@ main .img-section__img-mobile {
 
 main .img-section::after {
   content: '';
+  border-radius: 10px 10px 0 0;
   position: absolute;
   background-color: #aa5cdb;
   opacity: 0.5;
@@ -98,4 +104,49 @@ main .img-section::after {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+@media (min-width: 1440px) {
+  body {
+    align-items: center;
+  }
+  main {
+    flex-direction: row;
+  }
+  main .info-section {
+    padding: 4%;
+    min-width: 600px;
+    min-height: 412.95px;
+    border-radius: 10px 0 0 10px;
+  }
+  main .info-section__header {
+    font-size: 2.3em;
+    text-align: start;
+  }
+  main .info-section__description {
+    font-size: 1.1em;
+    text-align: start;
+    bottom: 0.5em;
+  }
+  main .info-section__stats {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  main .info-section__stat--stat-number {
+    text-align: start;
+  }
+  main .img-section {
+    min-width: 500px;
+  }
+  main .img-section__img-desktop {
+    width: 100%;
+    border-radius: 0 10px 10px 0;
+    display: block;
+  }
+  main .img-section__img-mobile {
+    display: none;
+  }
+  main .img-section::after {
+    border-radius: 0 10px 10px 0;
+  }
 }
