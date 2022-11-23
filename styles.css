@@ -35,7 +35,7 @@ main .info-section {
 main .info-section__header {
   color: white;
   width: 90%;
-  font-family: "Lexend Deca", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 2em;
   text-align: center;
 }
